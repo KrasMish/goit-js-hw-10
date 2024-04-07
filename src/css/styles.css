@@ -9,7 +9,6 @@
 @import url('./header.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -22,4 +21,108 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+.text-link {
+  font-family: Montserrat, sans-serif;
+  color: black;
+  margin-left: 26px;
+  border-style: solid;
+  border-color: blue;
+  border-width: 1px;
+}
+.timer-box {
+  margin-left: 105px;
+  margin-top: 40px;
+}
+#datetime-picker {
+  margin-right: 8px;
+  padding: 6px;
+  width: 272px;
+  border-radius: 4px;
+  border-width: 0.5px;
+  border-color: #808080;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  outline: none;
+}
+#datetime-picker:hover,
+#datetime-picker:focus {
+  border-color: black;
+}
+#datetime-picker:active {
+  border-color: #4e75ff;
+}
+.btn-timer {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #989898;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  background: #cfcfcf;
+  border: none;
+}
+
+.timer {
+  display: flex;
+  margin-top: 20px;
+  width: 346px;
+  height: 72px;
+  gap: 24px;
+}
+.btn-active {
+  background: #4e75ff;
+  color: #fff;
+}
+.btn-active:hover,
+.btn-active:focus {
+  background: #6c8cff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2e2f42;
+  text-align: center;
+  margin-top: 5px;
+}
+.form {
+  display: block;
+  margin-top: 30px;
+}
+fieldset {
+  margin: 20px 0;
+}
+
+input {
+  padding: 10px;
+}
+
+fieldset {
+  display: flex;
+  max-width: 250px;
+  column-gap: 30px;
 }
