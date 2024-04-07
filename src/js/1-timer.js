@@ -4,6 +4,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+const startButton = document.querySelector('button');
+
 let userSelectedDate;
 let timeInterval;
 
@@ -16,6 +18,7 @@ const options = {
     userSelectedDate = selectedDates[0];
     timeInterval = userSelectedDate - new Date();
     if (timeInterval < 1) {
+      startButton.disabled = true;
       iziToast.error({
         color: 'red',
         position: 'topRight',
@@ -50,16 +53,21 @@ function convertMs(ms) {
 
 const calendar = flatpickr('#datetime-picker', options);
 const inputTime = document.querySelector('#datetime-picker');
-const startButton = document.querySelector('button');
-const showTime = document.querySelectorAll('.value');
-
+const showTime = {
+  days: document.querySelector('[data-days]'),
+  hours: document.querySelector('[data-hours]'),
+  minutes: document.querySelector('[data-minutes]'),
+  seconds: document.querySelector('[data-seconds]'),
+};
 console.log(showTime);
 
 startButton.disabled = true;
 
+
 startButton.addEventListener('click', event => {
   const intervalId = setInterval(() => {
-    timeInterval = userSelectedDate - new Date();
+    const currentTime = new Date();
+    timeInterval = userSelectedDate.getTime() - currentTime.getTime();
     startButton.classList.remove(`btn-active`);
     if (timeInterval < 1) {
       startButton.disabled = true;
@@ -67,9 +75,9 @@ startButton.addEventListener('click', event => {
       return;
     }
     const timer = convertMs(timeInterval);
-    showTime[0].innerText = timer.days.toString().padStart(2, '0');
-    showTime[1].innerText = timer.hours.toString().padStart(2, '0');
-    showTime[2].innerText = timer.minutes.toString().padStart(2, '0');
-    showTime[3].innerText = timer.seconds.toString().padStart(2, '0');
+    showTime.days.innerText = timer.days.toString().padStart(2, '0');
+    showTime.hours.innerText = timer.hours.toString().padStart(2, '0');
+    showTime.minutes.innerText = timer.minutes.toString().padStart(2, '0');
+    showTime.seconds.innerText = timer.seconds.toString().padStart(2, '0');
   }, 1000);
 });
